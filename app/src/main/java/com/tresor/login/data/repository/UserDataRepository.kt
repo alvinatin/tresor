@@ -9,6 +9,16 @@ import io.reactivex.Observable
  * @author sebastianuskh on 5/22/17.
  */
 class UserDataRepository(val userDataFactory: UserDataFactory) : UserRepository {
+    override fun register(email: String, password: String): Observable<UserLoginDomainModel> {
+        val dataSource = userDataFactory.createFirebaseDataSource()
+        return dataSource.register(email, password)
+    }
+
+    override fun getUID(): Observable<UserLoginDomainModel> {
+        val dataSource = userDataFactory.createFirebaseDataSource()
+        return dataSource.getUID()
+    }
+
     override fun login(email: String, password: String): Observable<UserLoginDomainModel> {
         val dataSource = userDataFactory.createFirebaseDataSource()
         return dataSource.login(email, password)

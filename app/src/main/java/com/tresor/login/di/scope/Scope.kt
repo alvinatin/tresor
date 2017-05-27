@@ -8,3 +8,7 @@ import javax.inject.Scope
 @Scope
 @Retention(AnnotationRetention.RUNTIME)
 annotation class LoginScope
+
+@Scope
+@Retention(AnnotationRetention.RUNTIME)
+annotation class RegisterScope

@@ -8,4 +8,8 @@ import io.reactivex.Observable
  */
 interface UserRepository {
     fun login(email: String, password: String): Observable<UserLoginDomainModel>
+
+    fun register(email: String, password: String): Observable<UserLoginDomainModel>
+
+    fun getUID(): Observable<UserLoginDomainModel>
 }

@@ -18,13 +18,17 @@
             <!--</intent-filter>-->
         </activity>
 
-        <activity android:name=".login.view.activity.LoginActivity">
+        <activity android:name=".login.view.activity.LoginActivity"
+            android:label="@string/title_login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".login.view.activity.RegisterActivity"
+            android:label="@string/title_register"/>
     </application>
 
 </manifest>

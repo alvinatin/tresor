@@ -4,32 +4,49 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/email_input_layout"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <EditText
-            android:id="@+id/email_edit_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"/>
-    </android.support.design.widget.TextInputLayout>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/password_input_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <EditText
-            android:id="@+id/password_edit_text"
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/email_input_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            />
-    </android.support.design.widget.TextInputLayout>
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/email_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/password_input_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/password_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                />
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/login_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
 
     <Button
-        android:id="@+id/login_button"
+        android:id="@+id/button_switch_login"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:textAlignment="center"
+        />
+
 
 </LinearLayout>

@@ -6,9 +6,7 @@ import android.widget.EditText
 import com.tresor.R
 import com.tresor.base.view.BaseActivity
 import com.tresor.login.di.component.DaggerLoginComponent
-import com.tresor.login.di.component.LoginComponent
 import com.tresor.login.di.module.LoginModule
-import com.tresor.login.domain.model.UserLoginDomainModel
 import com.tresor.login.view.presenter.LoginPresenter
 import javax.inject.Inject
 
@@ -16,9 +14,9 @@ import javax.inject.Inject
  * @author sebastianuskh on 5/20/17.
  */
 
-class LoginActivity: BaseActivity(), LoginView{
+open class LoginActivity: FormLoginActivity(), LoginView{
 
-    val component by lazy {
+    val loginComponent by lazy {
         DaggerLoginComponent
                 .builder()
                 .appComponent(getAppComponent())
@@ -26,21 +24,21 @@ class LoginActivity: BaseActivity(), LoginView{
                 .loginModule(LoginModule())
                 .build()}
 
-    @Inject lateinit var presenter: LoginPresenter
+    @Inject lateinit var loginPresenter: LoginPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        loginComponent.inject(this)
+        loginPresenter.view = this
+        loginButton.text = getString(R.string.title_login)
+        switchButton.text = getString(R.string.title_register)
+    }
 
-        component.inject(this)
+    override fun userAction(email: String, password: String) {
+        loginPresenter.login(email, password)
+    }
 
-        presenter.view = this
-
-        val loginButton = findViewById(R.id.login_button) as Button
-        loginButton.setOnClickListener {
-            val email = (findViewById(R.id.email_edit_text) as EditText).text.toString()
-            val password = (findViewById(R.id.password_edit_text) as EditText).text.toString()
-            presenter.login(email, password)
-        }
+    override fun switchMode() {
+        navigator.goToRegister(this)
     }
 }
