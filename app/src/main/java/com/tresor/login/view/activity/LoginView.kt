@@ -5,6 +5,6 @@ import com.tresor.base.view.BaseView
 /**
  * @author sebastianuskh on 5/22/17.
  */
-interface LoginView : BaseView{
+interface LoginView : FormLoginView{
 
 }

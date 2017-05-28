@@ -16,6 +16,7 @@ import javax.inject.Inject
 
 open class LoginActivity: FormLoginActivity(), LoginView{
 
+
     val loginComponent by lazy {
         DaggerLoginComponent
                 .builder()

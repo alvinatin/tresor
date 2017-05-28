@@ -21,7 +21,7 @@ class LoginPresenterImpl(val login: Login): LoginPresenter() {
         }
 
         override fun onSuccess(t: UserLoginDomainModel) {
-
+            view.goToTransaction()
         }
     }
 }

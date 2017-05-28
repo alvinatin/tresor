@@ -7,5 +7,8 @@ interface CreateTransactionView {
     fun showLoading(boolean: Boolean)
 
     fun showToast(string : String)
+    fun storeUid(userId: String)
+    fun goToLogin()
+    fun updateDate() : String
 
 }

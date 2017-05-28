@@ -9,7 +9,7 @@ import com.tresor.base.view.BaseActivity
 /**
  * @author sebastianuskh on 5/27/17.
  */
-abstract class FormLoginActivity: BaseActivity() {
+abstract class FormLoginActivity: BaseActivity(), FormLoginView {
 
     lateinit var loginButton: Button
     lateinit var switchButton: Button
@@ -30,6 +30,10 @@ abstract class FormLoginActivity: BaseActivity() {
             switchMode()
         }
 
+    }
+
+    override fun goToTransaction() {
+        navigator.goToTransaction(this)
     }
 
     abstract fun switchMode()

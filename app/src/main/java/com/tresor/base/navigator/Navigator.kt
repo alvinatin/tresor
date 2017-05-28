@@ -2,6 +2,7 @@ package com.tresor.base.navigator
 
 import android.content.Context
 import android.content.Intent
+import com.tresor.createtransaction.view.activity.CreateTransactionActivity
 import com.tresor.login.view.activity.LoginActivity
 import com.tresor.login.view.activity.RegisterActivity
 import javax.inject.Inject
@@ -18,6 +19,10 @@ class Navigator @Inject constructor() {
 
     fun goToRegister(context: Context) {
         context.startActivity(Intent(context, RegisterActivity::class.java))
+    }
+
+    fun goToTransaction(context: Context) {
+        context.startActivity(Intent(context, CreateTransactionActivity::class.java))
     }
 
 }
